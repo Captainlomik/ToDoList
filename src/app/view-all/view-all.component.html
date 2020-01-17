@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-13 mt-4 mb-3">
+    <input type="search" class="form-control" placeholder="Поиск" [(ngModel)]="value" >
+  </div>
+
+<button class="btn btn-outline-secondary btn-sm" (click)="flag2=!flag2" (click)="show(1, flag2)"> Сортировка по дате создания </button>
+<button class="btn btn-outline-secondary btn-sm ml-5" (click)="flag2=!flag2" (click)="show(2, flag2)"> Сортировка по дате выполнения</button>
+
+    <div class="card-deck">
+    
+<app-view-list [tasks]='tasks' *ngFor="let tasks of tasks | filter:value"  (delete)='delete(tasks)' (ch)="change($event)">
+</app-view-list>
+     
+  </div>
+  
+</div>

@@ -1,0 +1,8 @@
+<div class="container mt-5">
+  <form action="" [formGroup]="addTask" (ngSubmit)="addCard()" novalidate class="form-group">
+    <input type="text" class="form-control mb-3" placeholder="header" formControlName="header">
+    <input type="text" class="form-control mb-3" placeholder="description" formControlName="description">
+    <input type="date" name=""   min="2020-01-01" max="2200-01-01"  required  class="form-control" formControlName="date" >
+    <button class="btn btn-primary mt-3" [disabled]="addTask.invalid">Add</button>
+  </form>
+</div>

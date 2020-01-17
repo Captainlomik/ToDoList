@@ -1,0 +1,27 @@
+
+    <div class="card bg-light mt-3" style="width: 18rem;" *ngIf="changeModule===false; else changeBlock">
+       <div class="card-header font-weight-bold">{{tasks.header}}<span *ngIf="label==1" class="badge badge-danger ml-3">Просрочено</span></div>
+      
+      <div class="card-body">
+        <div class="card-text mb-3"> <small class="text-muted ">Срок выполнения: {{tasks.date | date:'dd.MM.yyyy'}}</small> </div>
+        <div class="card-text mb-3">{{tasks.description}}</div>
+        
+        <div class="card-text mb-3"> <small class="text-muted">Дата создания: {{tasks.createDate| date:'dd.MM.yyyy'}}</small> </div>
+        <button class="btn  btn-primary mr-2" (click)="changeModule=!changeModule" >Изменить</button>
+        <button class="btn btn-primary" (click)="del()">Удалить</button>
+    </div>
+ 
+</div>
+
+ <ng-template #changeBlock>
+ 
+<div class="card bg-light mt-3" style="width: 18rem;" >
+
+  <div class="card-header"><input type="text" [(ngModel)]="tasks.header"></div>
+<div class="card-body">
+  <div class="card-text mb-3"><input type="text"  [(ngModel)]="tasks.description"></div>
+  <div class="card-text mb-3">Срок выполнения<input type="text" onfocus="(this.type='date')" [(ngModel)]="tasks.date"></div>
+  <button class="btn  btn-success mr-2" (click)="onSave()" >Save</button>
+  <button class="btn btn-primary" (click)="del()">Удалить</button>
+</div>
+</div></ng-template>
